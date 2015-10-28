@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="pt-br">
+    <meta charset="UTF-8">
+    <title>Pirmeiro Projeto Django</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- font para Tags h1 a -->
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <!-- font para h2 a -->
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+    <!-- font alternativa para h2 a -->
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <div class="page-header">
+        <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1><a href="/">Primeiro Projeto Django</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
