@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Django default" uuid="ab282acf-5ff4-4751-8c66-36a1151903d2">
-      <first-sync>true</first-sync>
+    <data-source name="PostgreSQL - mysite@localhost" uuid="1140aae6-f07f-4d5e-8f3d-abd3df6844d1">
+      <secret-storage>master_key</secret-storage>
       <user-name>admin</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
+      <schema-pattern>mysite.pg_catalog mysite.public</schema-pattern>
+      <default-schemas>mysite.pg_catalog mysite.public</default-schemas>
     </data-source>
   </component>
 </project>

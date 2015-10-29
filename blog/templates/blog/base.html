@@ -3,7 +3,7 @@
 <html>
 <head lang="pt-br">
     <meta charset="UTF-8">
-    <title>Pirmeiro Projeto Django</title>
+    <title>.: Django Project | BLOG :.</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <!-- font para Tags h1 a -->
@@ -13,11 +13,18 @@
     <!-- font alternativa para h2 a -->
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
 </head>
 <body>
     <div class="page-header">
+        {% if user.is_authenticated == False %}
+            <a href="{% url 'blog.views.login_user' %}">Entrar</a>
+        {% else %}
+            <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+            <a href="{% url 'blog.views.logout_view' %}">Sair</a>
+        {% endif %}
         <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        <h1><a href="/">Primeiro Projeto Django</a></h1>
+        <h1><a href="/">Django Project: Blog</a></h1>
     </div>
     <div class="content container">
         <div class="row">
@@ -26,6 +33,9 @@
             {% endblock %}
             </div>
         </div>
+    </div>
+    <div class="footer">
+        <footer>&copy; Copyright 2015 prdioliveira</footer>
     </div>
 </body>
 </html>

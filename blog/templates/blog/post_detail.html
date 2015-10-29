@@ -6,9 +6,17 @@
                 <div class="date">
                     {{ post.publish_date }}
             {% endif %}
-            <a class="btn btn-default" href="{% url "post_edit" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
             </div>
             <h2>{{ post.title }}</h2>
             {{ post.text|linebreaks }}
+            <a class="btn btn-default" href="{% url "post_edit" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url "post_delete" pk=post.pk %}" onclick="teste()"><span class="glyphicon glyphicon-trash"></span></a>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
 {% endblock %}
