@@ -1,0 +1,13 @@
+{% extends "pessoa/base.html" %}
+
+{% block content %}
+    {% for pessoa in pessoas %}
+        <div class="post">
+            <div class="date">
+                {{ post.datacadastro }}
+            </div>
+            <h2><a href="{% url 'pessoa.views.pessoa_detail' pk=pessoa.pk %}">{{ pessoa.nome }}&nbsp;{{ pessoa.sobrenome }}</a></h2>
+            <p>Cadastro em: {{pessoa.datacadastro}}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
