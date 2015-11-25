@@ -69,3 +69,6 @@ def login_user(request):
 def logout_view(request):
     logout(request)
     return redirect('blog.views.post_list')
+
+def index(request):
+    return render(request, 'blog/index.html')

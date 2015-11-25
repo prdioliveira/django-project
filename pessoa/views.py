@@ -20,7 +20,7 @@ def cad_pessoa(request):
         post = form.save(commit=False)
         post.save()
         return redirect('pessoa.views.pessoa_list')
-    return render(request, 'pessoa/pessoa_edit.html', {'form': form})
+    return render(request, 'pessoa/cad_pessoa.html', {'form': form})
 
 @login_required(login_url='/login/')
 def pessoa_edit(request, pk):
@@ -28,8 +28,11 @@ def pessoa_edit(request, pk):
     if request.method == "POST":
         form = CadastrarPessoaForm(request.POST, instance=pessoa)
         if form.is_valid():
+            pessoa = form.save(commit=False)
+            pessoa.senha = request.senha
+            pessoa.email = request.email
             pessoa.save()
-            return redirect('blog.views.post_detail', pk=pessoa.pk)
+            return redirect('pessoa.views.pessoa_detail', pk=pessoa.pk)
     else:
         form = CadastrarPessoaForm(instance=pessoa)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'pessoa/pessoa_edit.html', {'form': form})

@@ -16,6 +16,8 @@
                     {% csrf_token %}
                     {% if next %}
                         <input type="hidden" name="next" value="{{ next }}" />
+                    {% else %}
+                        <input type="hidden" name="next" value="/cadastro/" />
                     {% endif %}
                     <div class="form-group">
                         <label class="sr-only" for="username">Usuário</label>

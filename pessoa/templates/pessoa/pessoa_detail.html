@@ -2,12 +2,34 @@
 
 {% block content %}
         <div class="post">
-            {% if post.publish_date %}
+            {% if pessoa.datacadastro %}
                 <div class="date">
-                    {{ post.publish_date }}
+                    {{ pessoa.datacadastro }}
             {% endif %}
-            </div>
+                </div>
             <h2>{{ pessoa.nome }}</h2>
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Tipo de Pessoa</th>
+                        <th>Sexo</th>
+                        <th>Apelido</th>
+                        <th>Email</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                    </tr>
+                    <tr>
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.tipo_pessoa }}</td>
+                        <td>{{ pessoa.sexo }}</td>
+                        <td>{{ pessoa.apelido }}</td>
+                        <td>{{ pessoa.email }}</td>
+                        <td>{{ pessoa.cidade }}</td>
+                        <td>{{ pessoa.estado }}</td>
+                    </tr>
+                </table>
+            </div>
 
             <a class="btn btn-default" href="{% url "pessoa_edit" pk=pessoa.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 

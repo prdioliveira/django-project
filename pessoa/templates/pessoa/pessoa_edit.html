@@ -1,6 +1,6 @@
 {% extends 'pessoa/base.html' %}
 {% block content %}
-    <h2>Novo Post</h2>
+    <h2>Incluir Pessoa</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <div id="dialog">

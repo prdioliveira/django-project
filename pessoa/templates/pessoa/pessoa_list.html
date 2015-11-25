@@ -1,13 +1,31 @@
 {% extends "pessoa/base.html" %}
 
 {% block content %}
+    <a href="{% url 'pessoa.views.cad_pessoa' %}"><span class="glyphicon glyphicon-plus-sign"> Inserir</span></a>
     {% for pessoa in pessoas %}
         <div class="post">
             <div class="date">
-                {{ post.datacadastro }}
+                {{ pessoa.datacadastro }}
             </div>
             <h2><a href="{% url 'pessoa.views.pessoa_detail' pk=pessoa.pk %}">{{ pessoa.nome }}&nbsp;{{ pessoa.sobrenome }}</a></h2>
-            <p>Cadastro em: {{pessoa.datacadastro}}</p>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Perfil</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                    </tr>
+                    <tr>
+                        <td>{{ pessoa.foto }}</td>
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.email }}</td>
+                        <td>{{ pessoa.cidade }}</td>
+                        <td>{{ pessoa.estado }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     {% endfor %}
 {% endblock content %}
